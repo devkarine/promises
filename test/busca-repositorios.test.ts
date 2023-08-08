@@ -29,4 +29,14 @@ describe('busca repositorios', () => {
     expect(repositorios[0].branches[0].commits[0].id).toBeDefined();
     expect(repositorios[0].branches[0].commits[0].mensagem).toBeDefined();
   });
+
+  it('deve apresentar branches com commits', () => {
+    for (const repositorio of repositorios) {
+      for (const branch of repositorio.branches) {
+        expect(branch.nome).toBeDefined();
+        expect(branch.commits).toBeDefined();
+        expect(branch.commits.length).toBeGreaterThan(0);
+      }
+    }
+  });
 });
